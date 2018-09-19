@@ -1,5 +1,6 @@
 package com.hongwenyang.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.hongwenyang.domain.Student;
@@ -12,5 +13,5 @@ public interface StudentDao {
 	/*
 	 * 返回所有学生数据
 	 */
-	List<Student> findAll();
+	List<Student> findAll ()throws SQLException;
 }

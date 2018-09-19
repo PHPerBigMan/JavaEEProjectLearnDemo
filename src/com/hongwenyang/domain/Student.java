@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class Student {
 	private int id;
+	private String sname,gender,phone,hobby,info;
+	private Date birthday;
 	public int getId() {
 		return id;
 	}
@@ -49,6 +51,5 @@ public class Student {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-	private String sname,gender,phone,hobby,info;
-	private Date birthday;
+	
 }
