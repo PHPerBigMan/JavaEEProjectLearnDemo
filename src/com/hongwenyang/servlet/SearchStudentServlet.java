@@ -9,24 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hongwenyang.dao.StudentDao;
-import com.hongwenyang.dao.impl.StudentDaoImpl;
 import com.hongwenyang.dao.impl.StudentServiceImpl;
 import com.hongwenyang.domain.Student;
 import com.hongwenyang.service.StudentService;
 
 /**
- * 负责查询所有的学生信息 呈现至jsp页面
+ * Servlet implementation class SearchStudentServlet
  */
-public class StudentServlet extends HttpServlet {
-	
+public class SearchStudentServlet extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StudentService service = new StudentServiceImpl();
+		request.setCharacterEncoding("UTF-8");
+		String name 	= request.getParameter("sname");
+		String gender 	= request.getParameter("sgender");
 		try {
-			List<Student> sList = service.findAll();
-			
+			// 妯＄硦鏌ヨ1
+			List<Student> sList = service.findWithSearchs(name, gender);
+			// 妯＄硦鏌ヨ2
+//			List<Student> sList = service.findWithSearch(name);
 			request.setAttribute("list", sList);
-			
+			request.setAttribute("sname", name);
+			request.setAttribute("gender", gender);
 			request.getRequestDispatcher("list.jsp").forward(request, response);
 		} catch (SQLException e) {
 			

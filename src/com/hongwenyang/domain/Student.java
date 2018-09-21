@@ -1,14 +1,40 @@
 package com.hongwenyang.domain;
 /*
- * Ñ§Éú¶ÔÏóµÄbean
+ * Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bean
  */
 
 import java.util.Date;
 
 public class Student {
+	
 	private int id;
 	private String sname,gender,phone,hobby,info;
 	private Date birthday;
+	
+	public Student() {
+		super();
+		
+	}
+	public Student(String sname, String gender, String phone, String hobby, String info, Date birthday) {
+		super();
+		this.sname = sname;
+		this.gender = gender;
+		this.phone = phone;
+		this.hobby = hobby;
+		this.info = info;
+		this.birthday = birthday;
+	}
+	
+	public Student(int id, String sname, String gender, String phone, String hobby, String info, Date birthday) {
+		super();
+		this.id = id;
+		this.sname = sname;
+		this.gender = gender;
+		this.phone = phone;
+		this.hobby = hobby;
+		this.info = info;
+		this.birthday = birthday;
+	}
 	public int getId() {
 		return id;
 	}
