@@ -10,6 +10,9 @@ import com.hongwenyang.domain.Student;
  * 学生表的数据库操作 导包 ctrl+shift+o
  */
 public interface StudentDao {
+	int PAGE_LIMIT = 5;
+	// 获取分页数据
+	List<Student> findWithPage (int currentPage)throws SQLException;
 	/*
 	 * 返回所有学生数据
 	 */

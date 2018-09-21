@@ -49,7 +49,7 @@
 			<td>${v.birthday }</td>
 			<td>${v.hobby }</td>
 			<td>${v.info }</td>
-			<td><a href="EditServlet?id=${v.id }">编辑</a> <a href="" onclick="doDel(${v.id })">删除</a></td>
+			<td><a href="EditServlet?id=${v.id }">编辑</a> <a href="#" onclick="doDel(${v.id })">删除</a></td>
 		</tr>
 		</c:forEach>
 		
@@ -60,10 +60,12 @@
 	function doDel(id){
 		var flag = confirm("是否删除");
 		if(flag){
+			console.log(1);
 			location.href="DelServlet?id="+id
 		}else{
 			
-		}
+		} 
+		console.log(1)
 	}
 </script>
 </html>

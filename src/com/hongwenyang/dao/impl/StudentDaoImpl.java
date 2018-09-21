@@ -98,4 +98,10 @@ public class StudentDaoImpl implements StudentDao {
 		return cQueryRunner.query(sql, new BeanListHandler<Student>(Student.class),pList.toArray());
 	}
 
+	public List<Student> findWithPage(int currentPage) throws SQLException {
+		// TODO Auto-generated method stub
+		return cQueryRunner.query("select * from stu limit ? offset", new BeanListHandler<Student>(Student.class),PAGE_LIMIT,(currentPage - 1)*PAGE_LIMIT);
+		
+	}
+
 }

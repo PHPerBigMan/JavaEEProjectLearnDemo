@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.hongwenyang.dao.StudentDao;
+import com.hongwenyang.domain.PageBean;
 import com.hongwenyang.domain.Student;
 import com.hongwenyang.service.StudentService;
 // 涓氬姟閫昏緫
@@ -52,6 +53,17 @@ public class StudentServiceImpl implements StudentService {
 	public List<Student> findWithSearchs(String name, String gender) throws SQLException {
 		StudentDao studentDao = new StudentDaoImpl();
 		return studentDao.findWithSearchs(name, gender);
+	}
+
+	// 分页数据
+	public PageBean<Student> findWithPage(int currentPage) throws SQLException {
+		PageBean<Student> pBean = new PageBean<Student>();
+		pBean.setCurrentPage(currentPage);
+		pBean.setCurrentCount(StudentDao.PAGE_LIMIT);
+		pBean.setList(new StudentDaoImpl().findWithPage(currentPage));
+		// 总数和总页数
+		
+		return null;
 	}
 
 }

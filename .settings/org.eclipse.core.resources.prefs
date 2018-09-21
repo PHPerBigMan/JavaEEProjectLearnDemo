@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/com/hongwenyang/dao/StudentDao.java=GBK
 encoding//src/com/hongwenyang/dao/impl/StudentDaoImpl.java=GBK
+encoding//src/com/hongwenyang/servlet/SearchStudentServlet.java=UTF-8
 encoding//src/com/hongwenyang/servlet/StudentServlet.java=GBK
 encoding//src/com/hongwenyang/util/JDBCUtil02.java=UTF-8

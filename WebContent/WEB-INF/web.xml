@@ -69,4 +69,14 @@
     <servlet-name>SearchStudentServlet</servlet-name>
     <url-pattern>/SearchStudentServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StudentPageServlet</display-name>
+    <servlet-name>StudentPageServlet</servlet-name>
+    <servlet-class>com.hongwenyang.servlet.StudentPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentPageServlet</servlet-name>
+    <url-pattern>/StudentPageServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
