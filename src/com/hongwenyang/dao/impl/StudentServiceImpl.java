@@ -55,15 +55,27 @@ public class StudentServiceImpl implements StudentService {
 		return studentDao.findWithSearchs(name, gender);
 	}
 
+	
 	// 分页数据
 	public PageBean<Student> findWithPage(int currentPage) throws SQLException {
+		int count = new StudentDaoImpl().findCount();
+		int pageSize = StudentDao.PAGE_LIMIT ;
+		int allPageCount = count%pageSize == 0 ? count/pageSize : count/pageSize + 1;
+
+		if(allPageCount < currentPage) {
+			currentPage = allPageCount;
+		}
+		if(currentPage <=0) {
+			currentPage = 1;
+		}
 		PageBean<Student> pBean = new PageBean<Student>();
 		pBean.setCurrentPage(currentPage);
 		pBean.setCurrentCount(StudentDao.PAGE_LIMIT);
 		pBean.setList(new StudentDaoImpl().findWithPage(currentPage));
 		// 总数和总页数
-		
-		return null;
+		pBean.setCount(count);
+		pBean.setCountPage(allPageCount);
+		return pBean;
 	}
 
 }

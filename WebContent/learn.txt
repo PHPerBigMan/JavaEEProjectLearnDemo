@@ -1,0 +1,6 @@
+Student			=> Class类用于和数据库之间的操作，主要是使用setxxx()，getxxx()进行一些数据上的获取
+StudentDao		=> 数据库Dao接口,定义方法
+StudentDaoImpl	=>Dao的实现类
+StudentService	=>service接口,定义方法
+StudentServiceImpl	=>service实现类，业务逻辑的操作，调取DaoImpl中的方法将数据返回给servlet
+servlet				=>servlet层进行一系列操作

@@ -10,7 +10,7 @@ import com.hongwenyang.domain.Student;
  * 学生表的数据库操作 导包 ctrl+shift+o
  */
 public interface StudentDao {
-	int PAGE_LIMIT = 5;
+	int PAGE_LIMIT = 2;
 	// 获取分页数据
 	List<Student> findWithPage (int currentPage)throws SQLException;
 	/*
@@ -36,4 +36,6 @@ public interface StudentDao {
 	List<Student> findWithSearch (String name)throws SQLException;
 	// 模糊查询
 	List<Student> findWithSearchs (String name,String gender)throws SQLException;
+	
+	int findCount()  throws SQLException;
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.hongwenyang.dao.StudentDao;
 import com.hongwenyang.domain.Student;
@@ -98,10 +99,16 @@ public class StudentDaoImpl implements StudentDao {
 		return cQueryRunner.query(sql, new BeanListHandler<Student>(Student.class),pList.toArray());
 	}
 
+	// ·ÖÒ³
 	public List<Student> findWithPage(int currentPage) throws SQLException {
 		// TODO Auto-generated method stub
-		return cQueryRunner.query("select * from stu limit ? offset", new BeanListHandler<Student>(Student.class),PAGE_LIMIT,(currentPage - 1)*PAGE_LIMIT);
+		return cQueryRunner.query("select * from stu limit ? offset ?", new BeanListHandler<Student>(Student.class),PAGE_LIMIT,(currentPage - 1)*PAGE_LIMIT);
 		
+	}
+
+	public int findCount() throws SQLException {
+		Long number = (Long) cQueryRunner.query("select count(*) from stu",new ScalarHandler());
+		return number.intValue() ;
 	}
 
 }
